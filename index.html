@@ -2,24 +2,21 @@
     <head>
         <title>D3 Test</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <script type="text/javascript">
             var dataset = [5, 10, 15, 20, 25];
 
             d3.select("body")
-                .selectAll("p")
+                .selectAll("div")
                 .data(dataset)
                 .enter()
-                .append("p")
-                .text(function(d) { 
-                    return "I can count up to " + d; 
-                })
-                .style("color", function(d) {
-                    if(d > 15) {
-                        return "red";
-                    }
-                    return "black";
+                .append("div")
+                .attr("class", "bar")
+                .style("height", function(d) {
+                    var barHeight = d * 5;
+                    return barHeight + "px";
                 });
         </script>
     </body>
