@@ -47,6 +47,10 @@
                                  })])
                                  .range([2, 5]);
 
+            var xAxis = d3.svg.axis()
+                              .scale(xScale)
+                              .orient("bottom");
+
             svg.selectAll("circle")
                .data(dataset)
                .enter()
@@ -77,6 +81,11 @@
                .attr("font-family", "sans-serif")
                .attr("fill", "red")
                .attr("font-size", "11px");
+
+            svg.append("g")
+               .attr("class", "axis")
+               .attr("transform", "translate(0," + (svgH - padding) + ")")
+               .call(xAxis);
 
         </script>
     </body>
