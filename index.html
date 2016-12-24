@@ -49,7 +49,8 @@
 
             var xAxis = d3.svg.axis()
                               .scale(xScale)
-                              .orient("bottom");
+                              .orient("bottom")
+                              .ticks(5);
 
             svg.selectAll("circle")
                .data(dataset)
